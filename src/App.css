@@ -110,6 +110,7 @@ th {
   font-weight: bold;
   padding: 4px;
   border: 1px solid var(--border-color);
+  font-size: 12px;
 }
 
 .menu-table th:first-child {
