@@ -198,7 +198,6 @@ a:hover {
 /* Main layout */
 .main-table {
   width: 100%;
-  max-width: 650px;
   margin: 0 auto;
   border: 1px solid #999999;
   table-layout: fixed;
@@ -480,19 +479,19 @@ a:hover {
   padding: 8px;
   text-align: left;
   overflow: hidden;
+  display: flex;
 }
 
 .title-image-container {
-  float: left;
+  flex-shrink: 0;
   margin-right: 10px;
-  width: 120px;
 }
 
 .intro-text-container {
   font-size: 12px;
   line-height: 1.4;
-  overflow: hidden;
   text-align: left;
+  flex-grow: 1;
 }
 
 /* Title image */
