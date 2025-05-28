@@ -9,6 +9,7 @@ This PR implements a Nostr client that replicates the functionality and design o
    - Implemented table-based layout with precise styling to match the original
    - Used original title image and styling
    - Removed vertical text column as requested
+   - Full-width layout with title image on left
 
 2. **Nostr Protocol Integration**:
    - Fetches Kind 0 events (profiles) with all relevant fields
