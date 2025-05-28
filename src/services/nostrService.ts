@@ -103,7 +103,7 @@ export async function fetchLists(npub: string, listName?: string): Promise<Nostr
       ? nip19.decode(npub).data as string
       : npub;
     
-    const filter: any = {
+    const filter: { kinds: number[], authors: string[], "#d"?: string[] } = {
       kinds: [30000, 30001],
       authors: [pubkey]
     };

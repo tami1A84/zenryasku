@@ -12,7 +12,7 @@ interface ParsedList {
 }
 
 export default function CustomLists({ npub }: CustomListsProps) {
-  const [lists, setLists] = useState<NostrEvent[]>([]);
+  const [, setLists] = useState<NostrEvent[]>([]);
   const [parsedLists, setParsedLists] = useState<ParsedList[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
