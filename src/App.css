@@ -1,9 +1,4 @@
-/* Vertical text image */
-.vertical-text-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+/* Removed vertical text image */
 
 /* Original color scheme matching 2007 design */
 :root {
@@ -18,7 +13,7 @@
   --search-header-bg: #cccccc;
   --menu-row-odd: #eeeeee;
   --menu-row-even: #ffffff;
-  --vertical-text-bg: #eeeeee;
+  /* Removed vertical text background */
   --search-bg: #eeeeee;
   --profile-search-header-bg: #cccccc;
 }
@@ -203,6 +198,7 @@ a:hover {
   table-layout: fixed;
   border-collapse: collapse;
   background-color: white;
+  background-image: none !important;
 }
 
 .content-column {
