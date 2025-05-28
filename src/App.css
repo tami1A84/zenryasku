@@ -279,6 +279,91 @@ a:hover {
   font-size: 12px;
 }
 
+/* Friends table styles */
+.friends-table {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.friends-table th {
+  background-color: var(--header-bg);
+  text-align: center;
+  font-weight: bold;
+  padding: 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.friends-table .name-header,
+.friends-table .id-header,
+.friends-table .status-header {
+  background-color: var(--table-row-alt);
+  text-align: center;
+  padding: 4px;
+  border-right: 1px solid var(--border-color);
+}
+
+.friends-table .name-header {
+  width: 40%;
+}
+
+.friends-table .id-header {
+  width: 30%;
+}
+
+.friends-table .status-header {
+  width: 30%;
+  border-right: none;
+}
+
+.friends-table .name-cell,
+.friends-table .id-cell,
+.friends-table .status-cell {
+  padding: 4px;
+  border-right: 1px solid var(--border-color);
+}
+
+.friends-table .status-cell {
+  border-right: none;
+  text-align: center;
+}
+
+.friends-table .id-cell {
+  text-align: center;
+}
+
+.friend-name {
+  display: flex;
+  align-items: center;
+}
+
+.friend-image {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border-color);
+  margin-right: 6px;
+}
+
+.no-friend-image {
+  width: 24px;
+  height: 24px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  margin-right: 6px;
+}
+
+.mutual-friend {
+  background-color: #f8f8f8;
+}
+
+.mutual-status {
+  color: #ff0000;
+  font-weight: bold;
+}
+
 /* Footer */
 .footer {
   text-align: center;

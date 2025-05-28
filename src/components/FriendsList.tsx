@@ -79,54 +79,53 @@ export default function FriendsList({ npub }: FriendsListProps) {
 
   return (
     <div>
-      <table className="w-full">
+      <table className="friends-table">
         <thead>
           <tr>
-            <th colSpan={3} className="text-left">
+            <th colSpan={3}>
               友達リスト
+            </th>
+          </tr>
+          <tr>
+            <th className="name-header">
+              名前
+            </th>
+            <th className="id-header">
+              プロフID
+            </th>
+            <th className="status-header">
+              ステータス
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th className="w-1/4">
-              名前
-            </th>
-            <th className="w-1/4">
-              プロフID
-            </th>
-            <th className="w-2/4">
-              ステータス
-            </th>
-          </tr>
-          
           {friends.map(friend => (
             <tr 
               key={friend.pubkey} 
-              className={friend.isMutual ? 'bg-gray-100' : ''}
+              className={friend.isMutual ? 'mutual-friend' : ''}
             >
-              <td className="p-2">
-                <div className="flex items-center">
+              <td className="name-cell">
+                <div className="friend-name">
                   {friend.profile?.picture ? (
                     <img 
                       src={friend.profile.picture} 
                       alt={friend.profile.name || 'Friend'} 
-                      className="w-8 h-8 border mr-2"
+                      className="friend-image"
                     />
                   ) : (
-                    <div className="w-8 h-8 bg-gray-200 flex items-center justify-center border mr-2">
+                    <div className="no-friend-image">
                       <span>?</span>
                     </div>
                   )}
                   {friend.profile?.display_name || friend.profile?.name || '名前なし'}
                 </div>
               </td>
-              <td className="p-2">
+              <td className="id-cell">
                 {hexToNpub(friend.pubkey).substring(0, 10)}...
               </td>
-              <td className="p-2">
+              <td className="status-cell">
                 {friend.isMutual ? (
-                  <span className="text-red-600">親友</span>
+                  <span className="mutual-status">親友</span>
                 ) : (
                   <span>フォロー中</span>
                 )}
