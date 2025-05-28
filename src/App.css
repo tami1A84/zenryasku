@@ -3,14 +3,16 @@
   writing-mode: vertical-rl;
   text-orientation: upright;
   white-space: nowrap;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0.1em;
-  font-size: 36px;
+  font-size: 32px;
   color: #666666;
-  padding-top: 20px;
+  padding-top: 40px;
   font-family: "MS Mincho", "MS PMincho", serif;
   height: 100%;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 /* Original color scheme matching 2007 design */

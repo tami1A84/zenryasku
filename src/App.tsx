@@ -127,6 +127,14 @@ function App() {
                     </tr>
                     <tr>
                       <td>
+                        <a href="https://metadata.nostr.com/">管理人室</a>
+                      </td>
+                      <td>
+                        入り口が1つに統一！
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
                         <a href="#">プロフIDで検索</a>
                       </td>
                       <td>
