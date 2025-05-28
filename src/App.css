@@ -464,8 +464,9 @@ a:hover {
 
 /* Title image */
 .title-image {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
   border: none;
   display: block;
   max-width: 100%;
+  margin-left: 0;
 }
