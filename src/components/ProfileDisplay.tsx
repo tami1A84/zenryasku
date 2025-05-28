@@ -45,15 +45,15 @@ export default function ProfileDisplay({ npub }: ProfileDisplayProps) {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="text-center p-4">
+        読み込み中...
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+      <div className="p-2 border border-red-500">
         {error}
       </div>
     );
@@ -68,99 +68,144 @@ export default function ProfileDisplay({ npub }: ProfileDisplayProps) {
     return { __html: marked.parse(content) };
   };
 
+  const formatDate = (timestamp: number) => {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleString('ja-JP', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      {/* Banner image */}
-      {profile.banner && (
-        <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${profile.banner})` }}></div>
-      )}
-      
-      <div className="p-6">
-        {/* Profile picture and name */}
-        <div className="flex flex-col sm:flex-row items-center mb-6">
-          {profile.picture ? (
-            <img 
-              src={profile.picture} 
-              alt={profile.name || 'Profile'} 
-              className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md -mt-12 sm:-mt-0"
-            />
-          ) : (
-            <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center border-4 border-white shadow-md -mt-12 sm:-mt-0">
-              <span className="text-gray-500 text-2xl">?</span>
-            </div>
-          )}
+    <div>
+      <table className="w-full">
+        <tbody>
+          {/* Profile header */}
+          <tr>
+            <th colSpan={2} className="text-left">
+              プロフィール情報
+            </th>
+          </tr>
           
-          <div className="mt-4 sm:mt-0 sm:ml-6 text-center sm:text-left">
-            <h1 className="text-2xl font-bold text-gray-900">
-              {profile.display_name || profile.name || 'Anonymous'}
-            </h1>
-            
-            {/* NIP-05 verification */}
-            {profile.nip05 && (
-              <div className="text-sm text-green-600 flex items-center justify-center sm:justify-start mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>{profile.nip05}</span>
-              </div>
-            )}
-          </div>
-        </div>
-        
-        {/* About section with markdown */}
-        {profile.about && (
-          <div className="mb-6 prose prose-sm max-w-none">
-            <div dangerouslySetInnerHTML={renderMarkdown(profile.about)} />
-          </div>
-        )}
-        
-        {/* Links and contact info */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {profile.website && (
-            <a 
-              href={profile.website} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700 hover:bg-blue-100"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 015.656 0l4 4a4 4 0 01-5.656 5.656l-1.102-1.101" />
-              </svg>
-              Website
-            </a>
-          )}
-          
-          {profile.lud16 && (
-            <button 
-              className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-yellow-50 text-yellow-700 hover:bg-yellow-100"
-              onClick={() => console.log('Zap with', profile.lud16)}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Zap
-            </button>
-          )}
-        </div>
-        
-        {/* Recent notes */}
-        {notes.length > 0 && (
-          <div className="mt-8">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Updates</h2>
-            <div className="space-y-4">
-              {notes.map(note => (
-                <div key={note.id} className="p-3 bg-gray-50 rounded-lg">
-                  <p className="text-gray-700">{note.content}</p>
-                  <p className="text-xs text-gray-500 mt-2">
-                    {new Date(note.created_at * 1000).toLocaleString()}
-                  </p>
+          {/* Profile picture */}
+          <tr>
+            <td className="w-1/4">
+              プロフ画像
+            </td>
+            <td className="w-3/4">
+              {profile.picture ? (
+                <img 
+                  src={profile.picture} 
+                  alt={profile.name || 'Profile'} 
+                  className="w-24 h-24 border"
+                />
+              ) : (
+                <div className="w-24 h-24 bg-gray-200 flex items-center justify-center border">
+                  <span>No Image</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+              )}
+            </td>
+          </tr>
+          
+          {/* Name */}
+          <tr>
+            <td>
+              ニックネーム
+            </td>
+            <td>
+              {profile.display_name || profile.name || '名前なし'}
+            </td>
+          </tr>
+          
+          {/* NIP-05 verification */}
+          {profile.nip05 && (
+            <tr>
+              <td>
+                NIP-05認証
+              </td>
+              <td>
+                {profile.nip05}
+              </td>
+            </tr>
+          )}
+          
+          {/* Website */}
+          {profile.website && (
+            <tr>
+              <td>
+                ウェブサイト
+              </td>
+              <td>
+                <a 
+                  href={profile.website} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  {profile.website}
+                </a>
+              </td>
+            </tr>
+          )}
+          
+          {/* Lightning address */}
+          {profile.lud16 && (
+            <tr>
+              <td>
+                Lightning
+              </td>
+              <td>
+                {profile.lud16}
+                <button 
+                  className="ml-2 border px-2 py-1"
+                  onClick={() => console.log('Zap with', profile.lud16)}
+                >
+                  Zap
+                </button>
+              </td>
+            </tr>
+          )}
+          
+          {/* About section with markdown */}
+          {profile.about && (
+            <tr>
+              <td>
+                自己紹介
+              </td>
+              <td>
+                <div dangerouslySetInnerHTML={renderMarkdown(profile.about)} />
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+      
+      {/* Recent notes */}
+      {notes.length > 0 && (
+        <table className="w-full mt-4">
+          <thead>
+            <tr>
+              <th colSpan={2} className="text-left">
+                最近の投稿
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {notes.map(note => (
+              <tr key={note.id}>
+                <td className="w-1/4">
+                  {formatDate(note.created_at)}
+                </td>
+                <td className="w-3/4">
+                  {note.content}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }

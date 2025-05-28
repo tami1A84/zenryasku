@@ -55,15 +55,15 @@ export default function FriendsList({ npub }: FriendsListProps) {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="text-center p-4">
+        読み込み中...
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+      <div className="p-2 border border-red-500">
         {error}
       </div>
     );
@@ -71,59 +71,70 @@ export default function FriendsList({ npub }: FriendsListProps) {
 
   if (!contacts || friends.length === 0) {
     return (
-      <div className="bg-gray-50 border border-gray-200 text-gray-700 px-4 py-3 rounded">
-        No friends found
+      <div className="p-2 border">
+        友達が見つかりません
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Friends</h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <table className="w-full">
+        <thead>
+          <tr>
+            <th colSpan={3} className="text-left">
+              友達リスト
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th className="w-1/4">
+              名前
+            </th>
+            <th className="w-1/4">
+              プロフID
+            </th>
+            <th className="w-2/4">
+              ステータス
+            </th>
+          </tr>
+          
           {friends.map(friend => (
-            <div 
+            <tr 
               key={friend.pubkey} 
-              className={`p-4 rounded-lg border ${friend.isMutual ? 'border-pink-200 bg-pink-50' : 'border-gray-200 bg-gray-50'}`}
+              className={friend.isMutual ? 'bg-gray-100' : ''}
             >
-              <div className="flex items-center">
-                {friend.profile?.picture ? (
-                  <img 
-                    src={friend.profile.picture} 
-                    alt={friend.profile.name || 'Friend'} 
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                ) : (
-                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
-                    <span className="text-gray-500 text-xl">?</span>
-                  </div>
-                )}
-                
-                <div className="ml-3">
-                  <h3 className="font-medium text-gray-900">
-                    {friend.profile?.display_name || friend.profile?.name || 'Anonymous'}
-                  </h3>
-                  
-                  <div className="text-sm text-gray-500">
-                    {hexToNpub(friend.pubkey).substring(0, 10)}...
-                  </div>
-                  
-                  {friend.isMutual && (
-                    <div className="text-xs text-pink-600 font-medium mt-1 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                      </svg>
-                      My Best Friend
+              <td className="p-2">
+                <div className="flex items-center">
+                  {friend.profile?.picture ? (
+                    <img 
+                      src={friend.profile.picture} 
+                      alt={friend.profile.name || 'Friend'} 
+                      className="w-8 h-8 border mr-2"
+                    />
+                  ) : (
+                    <div className="w-8 h-8 bg-gray-200 flex items-center justify-center border mr-2">
+                      <span>?</span>
                     </div>
                   )}
+                  {friend.profile?.display_name || friend.profile?.name || '名前なし'}
                 </div>
-              </div>
-            </div>
+              </td>
+              <td className="p-2">
+                {hexToNpub(friend.pubkey).substring(0, 10)}...
+              </td>
+              <td className="p-2">
+                {friend.isMutual ? (
+                  <span className="text-red-600">親友</span>
+                ) : (
+                  <span>フォロー中</span>
+                )}
+              </td>
+            </tr>
           ))}
-        </div>
-      </div>
+        </tbody>
+      </table>
     </div>
   );
 }

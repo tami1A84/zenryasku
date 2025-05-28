@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchLists } from '../services/nostrService';
 import type { NostrEvent } from '../types/nostr';
 
@@ -61,15 +61,15 @@ export default function CustomLists({ npub }: CustomListsProps) {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="text-center p-4">
+        読み込み中...
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+      <div className="p-2 border border-red-500">
         {error}
       </div>
     );
@@ -77,35 +77,60 @@ export default function CustomLists({ npub }: CustomListsProps) {
 
   if (parsedLists.length === 0) {
     return (
-      <div className="bg-gray-50 border border-gray-200 text-gray-700 px-4 py-3 rounded">
-        No custom lists found
+      <div className="p-2 border">
+        お気に入りリストが見つかりません
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Favorite Things</h2>
-        
-        <div className="space-y-6">
+    <div>
+      <table className="w-full">
+        <thead>
+          <tr>
+            <th colSpan={2} className="text-left">
+              お気に入りリスト
+            </th>
+          </tr>
+        </thead>
+        <tbody>
           {parsedLists.map((list, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">{list.name}</h3>
+            <React.Fragment key={index}>
+              <tr>
+                <th colSpan={2} className="text-left bg-gray-100">
+                  {list.name}
+                </th>
+              </tr>
               
               {list.items.length > 0 ? (
-                <ul className="list-disc pl-5 space-y-1">
-                  {list.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-gray-700">{item}</li>
-                  ))}
-                </ul>
+                list.items.map((item, itemIndex) => (
+                  <tr key={`${index}-${itemIndex}`}>
+                    <td className="w-1/6 text-center p-2">
+                      {itemIndex + 1}
+                    </td>
+                    <td className="w-5/6 p-2">
+                      {item}
+                    </td>
+                  </tr>
+                ))
               ) : (
-                <p className="text-gray-500 italic">No items in this list</p>
+                <tr>
+                  <td colSpan={2} className="p-2 text-center">
+                    項目がありません
+                  </td>
+                </tr>
               )}
-            </div>
+              
+              {/* Add a spacer row between lists */}
+              {index < parsedLists.length - 1 && (
+                <tr>
+                  <td colSpan={2} className="h-4"></td>
+                </tr>
+              )}
+            </React.Fragment>
           ))}
-        </div>
-      </div>
+        </tbody>
+      </table>
     </div>
   );
 }
