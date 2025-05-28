@@ -196,8 +196,8 @@ a:hover {
 }
 
 .vertical-text-column {
-  width: 60px;
-  background-color: var(--vertical-text-bg);
+  width: 50px;
+  background-color: #ffffff;
   border-right: 1px solid var(--border-color);
   vertical-align: top;
   padding: 0;
