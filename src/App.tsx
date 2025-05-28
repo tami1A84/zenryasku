@@ -63,7 +63,7 @@ function App() {
               </div>
               
               {/* Search section */}
-              <table className="w-full mb-8">
+              <table className="search-table mb-8">
                 <thead>
                   <tr>
                     <th colSpan={2}>
@@ -73,7 +73,7 @@ function App() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="p-2 w-1/2">
+                    <td className="w-1/2">
                       <div>プロフIDで検索</div>
                       <input
                         type="text"
@@ -81,17 +81,17 @@ function App() {
                         onChange={(e) => setNpub(e.target.value)}
                         onKeyPress={handleKeyPress}
                         placeholder="npub..."
-                        className="w-full mb-2"
+                        className="mb-2"
                       />
                       <button onClick={handleSearch}>
                         検索
                       </button>
                     </td>
-                    <td className="p-2 w-1/2">
+                    <td className="w-1/2">
                       <div>フリーワード検索</div>
                       <input
                         type="text"
-                        className="w-full mb-2"
+                        className="mb-2"
                         disabled
                       />
                       <button disabled>
@@ -104,13 +104,13 @@ function App() {
               
               {/* Menu section */}
               {!searchedNpub && (
-                <table className="w-full mb-8">
+                <table className="menu-table mb-8">
                   <thead>
                     <tr>
-                      <th className="w-1/4">
+                      <th>
                         メニュー
                       </th>
-                      <th className="w-3/4">
+                      <th>
                         ちょっと説明
                       </th>
                     </tr>
@@ -166,28 +166,28 @@ function App() {
                     <tbody>
                       <tr>
                         <td colSpan={3} className="p-0">
-                          <table className="w-full border-0">
+                          <table className="profile-tabs w-full border-0">
                             <tbody>
                               <tr>
-                                <td className="w-1/3 text-center p-2">
+                                <td className="w-1/3">
                                   <button 
-                                    className={activeTab === 'profile' ? 'font-bold' : ''}
+                                    className={activeTab === 'profile' ? 'active' : ''}
                                     onClick={() => setActiveTab('profile')}
                                   >
                                     プロフィール
                                   </button>
                                 </td>
-                                <td className="w-1/3 text-center p-2">
+                                <td className="w-1/3">
                                   <button 
-                                    className={activeTab === 'friends' ? 'font-bold' : ''}
+                                    className={activeTab === 'friends' ? 'active' : ''}
                                     onClick={() => setActiveTab('friends')}
                                   >
                                     友達リスト
                                   </button>
                                 </td>
-                                <td className="w-1/3 text-center p-2">
+                                <td className="w-1/3">
                                   <button 
-                                    className={activeTab === 'lists' ? 'font-bold' : ''}
+                                    className={activeTab === 'lists' ? 'active' : ''}
                                     onClick={() => setActiveTab('lists')}
                                   >
                                     お気に入り
@@ -211,7 +211,7 @@ function App() {
               )}
               
               {/* Footer */}
-              <div className="text-center text-sm mt-8 border-t pt-4">
+              <div className="footer">
                 <a 
                   href="https://github.com/nostr-protocol/nostr" 
                   target="_blank" 
