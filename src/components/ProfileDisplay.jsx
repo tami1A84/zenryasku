@@ -76,41 +76,57 @@ function ProfileDisplay({ npub }) {
 
   return (
     <div>
-      <table className="w-full">
-        <tbody>
-          {/* Profile header */}
+      <table className="profile-table">
+        <thead>
           <tr>
-            <th colSpan={2} className="text-left">
+            <th colSpan={2}>
               プロフィール情報
             </th>
           </tr>
-          
+        </thead>
+        <tbody>
           {/* Profile picture */}
           <tr>
-            <td className="w-1/4">
+            <td className="label-cell">
               プロフ画像
             </td>
-            <td className="w-3/4">
+            <td className="content-cell">
               {profile.picture ? (
                 <img 
                   src={profile.picture} 
                   alt={profile.name || 'Profile'} 
-                  className="w-24 h-24 border"
+                  className="profile-image"
                 />
               ) : (
-                <div className="w-24 h-24 bg-gray-200 flex items-center justify-center border">
+                <div className="no-image">
                   <span>No Image</span>
                 </div>
               )}
             </td>
           </tr>
           
+          {/* Banner image */}
+          {profile.banner && (
+            <tr>
+              <td className="label-cell">
+                バナー画像
+              </td>
+              <td className="content-cell">
+                <img 
+                  src={profile.banner} 
+                  alt="Banner" 
+                  className="banner-image"
+                />
+              </td>
+            </tr>
+          )}
+          
           {/* Name */}
           <tr>
-            <td>
+            <td className="label-cell">
               ニックネーム
             </td>
-            <td>
+            <td className="content-cell">
               {profile.display_name || profile.name || '名前なし'}
             </td>
           </tr>
@@ -118,10 +134,10 @@ function ProfileDisplay({ npub }) {
           {/* NIP-05 verification */}
           {profile.nip05 && (
             <tr>
-              <td>
+              <td className="label-cell">
                 NIP-05認証
               </td>
-              <td>
+              <td className="content-cell">
                 {profile.nip05}
               </td>
             </tr>
@@ -130,10 +146,10 @@ function ProfileDisplay({ npub }) {
           {/* Website */}
           {profile.website && (
             <tr>
-              <td>
+              <td className="label-cell">
                 ウェブサイト
               </td>
-              <td>
+              <td className="content-cell">
                 <a 
                   href={profile.website} 
                   target="_blank" 
@@ -148,13 +164,13 @@ function ProfileDisplay({ npub }) {
           {/* Lightning address */}
           {profile.lud16 && (
             <tr>
-              <td>
+              <td className="label-cell">
                 Lightning
               </td>
-              <td>
+              <td className="content-cell">
                 {profile.lud16}
                 <button 
-                  className="ml-2 border px-2 py-1"
+                  className="zap-button"
                   onClick={() => console.log('Zap with', profile.lud16)}
                 >
                   Zap
@@ -166,11 +182,11 @@ function ProfileDisplay({ npub }) {
           {/* About section with markdown */}
           {profile.about && (
             <tr>
-              <td>
+              <td className="label-cell">
                 自己紹介
               </td>
-              <td>
-                <div dangerouslySetInnerHTML={renderMarkdown(profile.about)} />
+              <td className="content-cell">
+                <div className="markdown-content" dangerouslySetInnerHTML={renderMarkdown(profile.about)} />
               </td>
             </tr>
           )}
@@ -179,10 +195,10 @@ function ProfileDisplay({ npub }) {
       
       {/* Recent notes */}
       {notes.length > 0 && (
-        <table className="w-full mt-4">
+        <table className="notes-table">
           <thead>
             <tr>
-              <th colSpan={2} className="text-left">
+              <th colSpan={2}>
                 最近の投稿
               </th>
             </tr>
@@ -190,10 +206,10 @@ function ProfileDisplay({ npub }) {
           <tbody>
             {notes.map(note => (
               <tr key={note.id}>
-                <td className="w-1/4">
+                <td className="date-cell">
                   {formatDate(note.created_at)}
                 </td>
-                <td className="w-3/4">
+                <td className="note-cell">
                   {note.content}
                 </td>
               </tr>

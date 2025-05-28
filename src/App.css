@@ -188,6 +188,97 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Profile table styles */
+.profile-table {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.profile-table th {
+  background-color: var(--header-bg);
+  text-align: center;
+  font-weight: bold;
+  padding: 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-table .label-cell {
+  width: 25%;
+  background-color: var(--table-row-alt);
+  text-align: left;
+  padding: 6px;
+  border-right: 1px solid var(--border-color);
+}
+
+.profile-table .content-cell {
+  width: 75%;
+  padding: 6px;
+}
+
+.profile-image {
+  max-width: 120px;
+  max-height: 120px;
+  border: 1px solid var(--border-color);
+}
+
+.banner-image {
+  max-width: 100%;
+  max-height: 80px;
+  border: 1px solid var(--border-color);
+}
+
+.no-image {
+  width: 120px;
+  height: 120px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+}
+
+.zap-button {
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 11px;
+}
+
+.markdown-content {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Notes table styles */
+.notes-table {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  margin-top: 10px;
+}
+
+.notes-table th {
+  background-color: var(--header-bg);
+  text-align: center;
+  font-weight: bold;
+  padding: 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.notes-table .date-cell {
+  width: 25%;
+  background-color: var(--table-row-alt);
+  text-align: center;
+  padding: 4px;
+  border-right: 1px solid var(--border-color);
+  font-size: 11px;
+}
+
+.notes-table .note-cell {
+  width: 75%;
+  padding: 4px;
+  font-size: 12px;
+}
+
 /* Footer */
 .footer {
   text-align: center;
