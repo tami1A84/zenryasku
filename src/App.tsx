@@ -43,7 +43,7 @@ function App() {
             {/* Main content column */}
             <td className="content-column">
               <div className="mb-4">
-                <img src="/images/title.gif" alt="前略プロフィール" className="mb-2" />
+                <img src="/img/title.gif" alt="前略プロフィール" className="mb-2" />
               </div>
               
               <div className="mb-4">
