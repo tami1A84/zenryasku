@@ -28,9 +28,11 @@ function App() {
           <tr>
             {/* Left vertical text column */}
             <td className="vertical-text-column">
-              <div className="writing-vertical">
-                前略プロフィール
-              </div>
+              <img 
+                src="/img/vertical_text.png" 
+                alt="前略プロフィール" 
+                className="vertical-text-image"
+              />
             </td>
             
             {/* Main content column */}
