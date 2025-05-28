@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import ProfileDisplay from './components/ProfileDisplay.jsx';
+import ProfileDisplay from './components/ProfileDisplay';
 import FriendsList from './components/FriendsList';
 import CustomLists from './components/CustomLists';
 
@@ -26,26 +26,28 @@ function App() {
       <table className="main-table">
         <tbody>
           <tr>
-            {/* Main content column */}
             <td className="content-column">
-              <div className="mb-4">
-                <img src="/img/title.gif" alt="前略プロフィール" className="title-image" />
-              </div>
-              
-              <div className="mb-4">
-                激しく自己紹介しませんか？
-              </div>
-              
-              <div className="mb-4">
-                『前略プロフィール』は、誰でも手軽に携帯電話・パソコンの両方に対応した、自己紹介ページを作成できるサイトです。あらかじめ用意された数十種類の項目から、公表したいものだけに答えていくだけで簡単に完成します。
-              </div>
-              
-              <div className="mb-4">
-                投稿をメール転送する機能付のゲストブック(掲示板)も簡単操作で設置可能、写真の掲載やリンク集などの機能もあるので、簡易ホームページのような使い方もできます。プロフィールは携帯電話・パソコンどちらでも同じURLでアクセスできます。掲示板ももちろん携帯電話対応です。
-              </div>
-              
-              <div className="mb-8">
-                個性を主張した楽しい自己紹介が、ナウい！ぜひ、ここぞとばかりに自己主張して、あなただけのプロフィールを作成しませんか？
+              <div className="header-container mb-8">
+                <div className="title-image-container">
+                  <img src="/img/title.gif" alt="前略プロフィール" className="title-image" />
+                </div>
+                <div className="intro-text-container">
+                  <div className="mb-2">
+                    激しく自己紹介しませんか？
+                  </div>
+                  
+                  <div className="mb-2">
+                    『前略プロフィール』は、誰でも手軽に携帯電話・パソコンの両方に対応した、自己紹介ページを作成できるサイトです。あらかじめ用意された数十種類の項目から、公表したいものだけに答えていくだけで簡単に完成します。
+                  </div>
+                  
+                  <div className="mb-2">
+                    投稿をメール転送する機能付のゲストブック(掲示板)も簡単操作で設置可能、写真の掲載やリンク集などの機能もあるので、簡易ホームページのような使い方もできます。プロフィールは携帯電話・パソコンどちらでも同じURLでアクセスできます。掲示板ももちろん携帯電話対応です。
+                  </div>
+                  
+                  <div>
+                    個性を主張した楽しい自己紹介が、ナウい！ぜひ、ここぞとばかりに自己主張して、あなただけのプロフィールを作成しませんか？
+                  </div>
+                </div>
               </div>
               
               {/* Search section */}

@@ -32,6 +32,14 @@ body {
   background-color: #ffffff;
   color: #333333;
   line-height: 1.4;
+  text-align: center;
+}
+
+.min-h-screen {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #ffffff;
 }
 
 /* Table styles to match original */
@@ -59,28 +67,32 @@ th {
 .search-table {
   border: 1px solid var(--border-color);
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #eeeeee;
 }
 
 .search-table th {
   background-color: #cccccc;
   text-align: center;
-  font-weight: bold;
-  padding: 4px;
+  font-weight: normal;
+  padding: 2px;
   border: 1px solid var(--border-color);
   font-size: 12px;
+  height: 20px;
 }
 
 .search-table td {
-  padding: 6px;
+  padding: 5px;
   vertical-align: top;
   border: 1px solid var(--border-color);
   background-color: #eeeeee;
+  text-align: left;
 }
 
 .search-table input[type="text"] {
-  width: 85%;
+  width: 80%;
   margin-right: 5px;
   margin-top: 3px;
   margin-bottom: 3px;
@@ -93,34 +105,37 @@ th {
   margin-top: 3px;
   font-size: 12px;
   padding: 1px 4px;
-  background-color: #eeeeee;
+  background-color: #f0f0f0;
   border: 1px solid #999999;
+  cursor: pointer;
 }
 
 /* Menu table styles */
 .menu-table {
   border: 1px solid var(--border-color);
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-collapse: collapse;
 }
 
 .menu-table th {
   background-color: #cccccc;
   text-align: center;
-  font-weight: bold;
-  padding: 4px;
+  font-weight: normal;
+  padding: 3px;
   border: 1px solid var(--border-color);
   font-size: 12px;
 }
 
 .menu-table th:first-child {
-  width: 25%;
+  width: 30%;
   text-align: center;
+  font-weight: normal;
+  background-color: #eeeeee;
 }
 
 .menu-table th:last-child {
-  width: 75%;
+  width: 70%;
   text-align: center;
 }
 
@@ -135,10 +150,12 @@ th {
 .menu-table td {
   padding: 4px 8px;
   border: 1px solid var(--border-color);
+  text-align: left;
 }
 
 .menu-table td:first-child {
   text-align: center;
+  background-color: #eeeeee;
 }
 
 /* Button styles to match original */
@@ -181,24 +198,16 @@ a:hover {
 /* Main layout */
 .main-table {
   width: 100%;
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
-  border: none;
+  border: 1px solid #999999;
   table-layout: fixed;
   border-collapse: collapse;
-}
-
-.vertical-text-column {
-  width: 50px;
-  background-color: #eeeeee;
-  border-right: 1px solid var(--border-color);
-  vertical-align: top;
-  padding: 0;
-  text-align: center;
+  background-color: white;
 }
 
 .content-column {
-  padding: 15px;
+  padding: 8px;
   background-color: white;
   vertical-align: top;
   width: 100%;
@@ -456,15 +465,38 @@ a:hover {
 /* Footer */
 .footer {
   text-align: center;
-  margin-top: 20px;
-  padding-top: 10px;
+  margin-top: 15px;
+  padding-top: 5px;
   border-top: 1px solid var(--border-color);
   font-size: 10px;
+  color: #333333;
+}
+
+/* Header container with title image and intro text */
+.header-container {
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  background-color: white;
+  padding: 8px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.title-image-container {
+  float: left;
+  margin-right: 10px;
+  width: 120px;
+}
+
+.intro-text-container {
+  font-size: 12px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-align: left;
 }
 
 /* Title image */
 .title-image {
-  margin-bottom: 15px;
   border: none;
   display: block;
   max-width: 100%;
