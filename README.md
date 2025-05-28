@@ -2,7 +2,7 @@
 
 Nostr前略プロフィールは、2000年代初頭の人気日本語プロフィールサービス「前略プロフィール」のデザインと機能を再現したNostrクライアントです。
 
-![サンプル画像](!https://blossom.westernbtc.com/07211c33e4bdecab4aadb03d0731e77c1eb72ee6ab6bb03b5b6631ed1c4fcbe0.png)
+![サンプル画像](https://blossom.westernbtc.com/07211c33e4bdecab4aadb03d0731e77c1eb72ee6ab6bb03b5b6631ed1c4fcbe0.png)
 
 ## 機能
 
