@@ -1,8 +1,8 @@
 /* Vertical text image */
 .vertical-text-image {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  display: block;
 }
 
 /* Original color scheme matching 2007 design */
@@ -191,6 +191,7 @@ a:hover {
   border-right: 1px solid var(--border-color);
   vertical-align: top;
   padding: 0;
+  text-align: center;
 }
 
 .content-column {
