@@ -24,7 +24,11 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <header className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-gray-800">Zenryasku</h1>
+        <img 
+          src="/images/title.gif" 
+          alt="Zenryaku Profile" 
+          className="mx-auto mb-2"
+        />
         <p className="text-gray-600">Nostr前略プロフィール</p>
       </header>
       <main className="max-w-2xl mx-auto">
