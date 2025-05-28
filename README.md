@@ -2,7 +2,8 @@
 
 Nostr前略プロフィールは、2000年代初頭の人気日本語プロフィールサービス「前略プロフィール」のデザインと機能を再現したNostrクライアントです。
 
-![サンプル画像](https://app.devin.ai/sessions/28cd9e7d41a24b009cd927f8d546c461)
+![サンプル画像](![localhost_5173_184941](https://github.com/user-attachments/assets/bbf2ef2b-f6af-470a-9c1d-68c07aa10da3)
+)
 
 ## 機能
 
