@@ -4,10 +4,10 @@
   text-orientation: upright;
   white-space: nowrap;
   line-height: 1.2;
-  letter-spacing: 0.1em;
-  font-size: 32px;
+  letter-spacing: 0.05em;
+  font-size: 28px;
   color: #666666;
-  padding-top: 40px;
+  padding-top: 60px;
   font-family: "MS Mincho", "MS PMincho", serif;
   height: 100%;
   margin: 0 auto;
