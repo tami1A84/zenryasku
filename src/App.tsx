@@ -43,7 +43,7 @@ function App() {
             {/* Main content column */}
             <td className="content-column">
               <div className="mb-4">
-                <img src="/img/title.gif" alt="前略プロフィール" className="mb-2" />
+                <img src="/img/title.gif" alt="前略プロフィール" className="title-image" />
               </div>
               
               <div className="mb-4">
@@ -126,7 +126,7 @@ function App() {
                     </tr>
                     <tr>
                       <td>
-                        <a href="#">新規登録！</a>
+                        <a href="https://nstart.me/ja">新規登録！</a>
                       </td>
                       <td>
                         簡単にプロフィールを作成できます。楽しいプロフを作りましょう！

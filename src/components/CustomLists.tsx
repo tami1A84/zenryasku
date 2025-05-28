@@ -85,10 +85,10 @@ export default function CustomLists({ npub }: CustomListsProps) {
 
   return (
     <div>
-      <table className="w-full">
+      <table className="favorites-table">
         <thead>
           <tr>
-            <th colSpan={2} className="text-left">
+            <th colSpan={2}>
               お気に入りリスト
             </th>
           </tr>
@@ -97,25 +97,25 @@ export default function CustomLists({ npub }: CustomListsProps) {
           {parsedLists.map((list, index) => (
             <React.Fragment key={index}>
               <tr>
-                <th colSpan={2} className="text-left bg-gray-100">
+                <th colSpan={2} className="list-header">
                   {list.name}
                 </th>
               </tr>
               
               {list.items.length > 0 ? (
                 list.items.map((item, itemIndex) => (
-                  <tr key={`${index}-${itemIndex}`}>
-                    <td className="w-1/6 text-center p-2">
+                  <tr key={`${index}-${itemIndex}`} className={itemIndex % 2 === 0 ? 'even-row' : 'odd-row'}>
+                    <td className="number-cell">
                       {itemIndex + 1}
                     </td>
-                    <td className="w-5/6 p-2">
+                    <td className="item-cell">
                       {item}
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan={2} className="p-2 text-center">
+                  <td colSpan={2} className="empty-list">
                     項目がありません
                   </td>
                 </tr>
@@ -124,7 +124,7 @@ export default function CustomLists({ npub }: CustomListsProps) {
               {/* Add a spacer row between lists */}
               {index < parsedLists.length - 1 && (
                 <tr>
-                  <td colSpan={2} className="h-4"></td>
+                  <td colSpan={2} className="list-spacer"></td>
                 </tr>
               )}
             </React.Fragment>

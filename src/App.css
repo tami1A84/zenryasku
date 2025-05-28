@@ -364,6 +364,60 @@ a:hover {
   font-weight: bold;
 }
 
+/* Favorites table styles */
+.favorites-table {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.favorites-table th {
+  background-color: var(--header-bg);
+  text-align: center;
+  font-weight: bold;
+  padding: 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.favorites-table .list-header {
+  background-color: var(--table-row-alt);
+  text-align: left;
+  padding: 4px 8px;
+  font-weight: bold;
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.favorites-table .number-cell {
+  width: 15%;
+  text-align: center;
+  padding: 4px;
+  border-right: 1px solid var(--border-color);
+}
+
+.favorites-table .item-cell {
+  width: 85%;
+  padding: 4px 8px;
+}
+
+.favorites-table .even-row {
+  background-color: #ffffff;
+}
+
+.favorites-table .odd-row {
+  background-color: var(--menu-row-odd);
+}
+
+.favorites-table .empty-list {
+  text-align: center;
+  padding: 6px;
+}
+
+.favorites-table .list-spacer {
+  height: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
 /* Footer */
 .footer {
   text-align: center;
@@ -371,4 +425,10 @@ a:hover {
   padding-top: 10px;
   border-top: 1px solid var(--border-color);
   font-size: 10px;
+}
+
+/* Title image */
+.title-image {
+  margin-bottom: 8px;
+  border: none;
 }
