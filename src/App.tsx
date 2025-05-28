@@ -29,14 +29,7 @@ function App() {
             {/* Left vertical text column */}
             <td className="vertical-text-column">
               <div className="writing-vertical">
-                <div>前</div>
-                <div>略</div>
-                <div>プ</div>
-                <div>ロ</div>
-                <div>フ</div>
-                <div>ィ</div>
-                <div>ー</div>
-                <div>ル</div>
+                前略プロフィール
               </div>
             </td>
             
