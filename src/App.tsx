@@ -11,7 +11,8 @@ function App() {
 
   const handleSearch = () => {
     if (npub.trim()) {
-      setSearchedNpub(npub);
+      console.log("Search performed with npub:", npub);
+      setSearchedNpub(npub + '');
     }
   };
 
@@ -148,11 +149,36 @@ function App() {
         {/* Profile content */}
         {searchedNpub && (
           <div className="mb-8">
-            <table className="w-full mb-4">
+            {/* New プロフィール表示 section with empty cells */}
+            <table className="profile-display-table w-full mb-4">
               <thead>
                 <tr>
                   <th colSpan={3}>
                     プロフィール表示
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="w-1/3 p-2 text-center">
+                    {/* Empty cell 1 */}
+                  </td>
+                  <td className="w-1/3 p-2 text-center">
+                    {/* Empty cell 2 */}
+                  </td>
+                  <td className="w-1/3 p-2 text-center">
+                    {/* Empty cell 3 */}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+            {/* Existing tabbed content */}
+            <table className="w-full mb-4">
+              <thead>
+                <tr>
+                  <th colSpan={3}>
+                    詳細プロフィール
                   </th>
                 </tr>
               </thead>
