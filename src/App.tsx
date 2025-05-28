@@ -26,15 +26,6 @@ function App() {
       <table className="main-table">
         <tbody>
           <tr>
-            {/* Left vertical text column */}
-            <td className="vertical-text-column">
-              <img 
-                src="/img/vertical_text.png" 
-                alt="前略プロフィール" 
-                className="vertical-text-image"
-              />
-            </td>
-            
             {/* Main content column */}
             <td className="content-column">
               <div className="mb-4">
