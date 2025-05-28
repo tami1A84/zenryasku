@@ -5,10 +5,11 @@
   white-space: nowrap;
   line-height: 1.5;
   letter-spacing: 0.1em;
-  font-size: 24px;
+  font-size: 28px;
   color: #666666;
   padding-top: 20px;
   padding-right: 10px;
+  font-family: "MS Mincho", "MS PMincho", serif;
 }
 
 /* Original color scheme matching 2007 design */
@@ -21,6 +22,9 @@
   --menu-bg: #eeeeee;
   --menu-header-bg: #dddddd;
   --table-row-alt: #f0f0f0;
+  --search-header-bg: #cccccc;
+  --menu-row-odd: #eeeeee;
+  --menu-row-even: #ffffff;
 }
 
 /* Reset and base styles */
@@ -56,23 +60,36 @@ th {
 }
 
 /* Search table styles */
+.search-table {
+  border: 1px solid var(--border-color);
+  width: 100%;
+}
+
 .search-table th {
-  background-color: var(--header-bg);
+  background-color: var(--search-header-bg);
   text-align: center;
   font-weight: bold;
   padding: 4px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .search-table td {
   padding: 8px;
   vertical-align: top;
+  border-right: 1px solid var(--border-color);
 }
 
 /* Menu table styles */
+.menu-table {
+  border: 1px solid var(--border-color);
+  width: 100%;
+}
+
 .menu-table th:first-child {
   width: 25%;
   background-color: var(--menu-header-bg);
   text-align: center;
+  border-right: 1px solid var(--border-color);
 }
 
 .menu-table th:last-child {
@@ -81,12 +98,17 @@ th {
   text-align: center;
 }
 
-.menu-table tr:nth-child(odd) {
-  background-color: var(--table-row-alt);
+.menu-table tr:nth-child(odd) td {
+  background-color: var(--menu-row-odd);
 }
 
-.menu-table tr:nth-child(even) {
-  background-color: white;
+.menu-table tr:nth-child(even) td {
+  background-color: var(--menu-row-even);
+}
+
+.menu-table td:first-child {
+  text-align: center;
+  border-right: 1px solid var(--border-color);
 }
 
 /* Button styles to match original */
