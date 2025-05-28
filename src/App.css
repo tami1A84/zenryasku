@@ -463,4 +463,6 @@ a:hover {
 .title-image {
   margin-bottom: 8px;
   border: none;
+  display: block;
+  max-width: 100%;
 }
