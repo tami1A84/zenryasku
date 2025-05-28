@@ -64,7 +64,7 @@ th {
 }
 
 .search-table th {
-  background-color: var(--profile-search-header-bg);
+  background-color: #cccccc;
   text-align: center;
   font-weight: bold;
   padding: 4px;
@@ -76,7 +76,7 @@ th {
   padding: 6px;
   vertical-align: top;
   border: 1px solid var(--border-color);
-  background-color: var(--search-bg);
+  background-color: #eeeeee;
 }
 
 .search-table input[type="text"] {
