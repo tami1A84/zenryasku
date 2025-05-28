@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import ProfileDisplay from './components/ProfileDisplay';
+import ProfileDisplay from './components/ProfileDisplay.jsx';
 import FriendsList from './components/FriendsList';
 import CustomLists from './components/CustomLists';
 
@@ -43,7 +43,7 @@ function App() {
             {/* Main content column */}
             <td className="content-column">
               <div className="mb-4">
-                <img src="https://web.archive.org/web/20070909094313im_/http://pr.cgiboy.com/img/title.gif" alt="前略プロフィール" className="mb-2" />
+                <img src="/img/title.gif" alt="前略プロフィール" className="mb-2" />
               </div>
               
               <div className="mb-4">

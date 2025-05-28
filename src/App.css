@@ -30,6 +30,8 @@ body {
 table {
   border-collapse: collapse;
   border: 1px solid var(--border-color);
+  margin-bottom: 8px;
+  width: 100%;
 }
 
 th, td {
@@ -91,9 +93,11 @@ a:hover {
   width: 60px;
   background-color: var(--menu-bg);
   border-right: 2px solid var(--border-color);
+  vertical-align: top;
 }
 
 .content-column {
   padding: 16px;
   background-color: white;
+  vertical-align: top;
 }
